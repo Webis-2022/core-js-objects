@@ -163,7 +163,6 @@ function makeWord(lettersObject) {
  *    sellTickets([25, 100]) => false (The seller does not have enough money to give change.)
  */
 function sellTickets(queue) {
-  console.log(queue);
   let sum = 0;
   let diff = 0;
   for (let i = 0; i < queue.length; i += 1) {
@@ -198,7 +197,7 @@ function Rectangle(width, height) {
   this.height = height;
 }
 
-Rectangle.prototype.getArea = function () {
+Rectangle.prototype.getArea = function multiplyDimensions() {
   return this.width * this.height;
 };
 
