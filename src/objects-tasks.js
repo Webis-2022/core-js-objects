@@ -366,67 +366,35 @@ function group(array, keySelector, valueSelector) {
  *  For more examples see unit tests.
  */
 
-class cssSelectorBuilder {
-  constructor() {
-    this.selector = '';
-    this.order = [];
-  }
+const cssSelectorBuilder = {
+  element(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  element(value) {
-    if (this.order.includes('element')) {
-      throw new Error('Element selector already specified');
-    }
-    this.selector += value;
-    this.order.push('element');
-    return this;
-  }
+  id(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  id(value) {
-    if (this.order.includes('id')) {
-      throw new Error('ID selector already specified');
-    }
-    this.selector += `#${value}`;
-    this.order.push('id');
-    return this;
-  }
+  class(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  class(value) {
-    this.selector += `.${value}`;
-    this.order.push('class');
-    return this;
-  }
+  attr(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  attr(value) {
-    this.selector += `[${value}]`;
-    this.order.push('attr');
-    return this;
-  }
+  pseudoClass(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  pseudoClass(value) {
-    this.selector += `:${value}`;
-    this.order.push('pseudoClass');
-    return this;
-  }
+  pseudoElement(/* value */) {
+    throw new Error('Not implemented');
+  },
 
-  pseudoElement(value) {
-    this.selector += `::${value}`;
-    this.order.push('pseudoElement');
-    return this;
-  }
-
-  stringify() {
-    return this.selector;
-  }
-
-  combine(otherSelector, operator) {
-    if (!(otherSelector instanceof cssSelectorBuilder)) {
-      throw new Error('Argument must be an instance of CssSelectorBuilder');
-    }
-
-    this.selector += ` ${operator} ${otherSelector.stringify()}`;
-    return this;
-  }
-}
+  combine(/* selector1, combinator, selector2 */) {
+    throw new Error('Not implemented');
+  },
+};
 
 module.exports = {
   shallowCopy,
